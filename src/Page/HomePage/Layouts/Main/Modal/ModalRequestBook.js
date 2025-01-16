@@ -29,7 +29,7 @@ function ModalRequestBook({ show, setShow, nameBook }) {
         const dateRegex = /^(0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/(\d{4})$/;
 
         if (!dateRegex.test(date1) || !dateRegex.test(date2)) {
-            toast.error('Vui lfong đúng ngày cấp và ngày hết hạn!');
+            toast.error('Vui lòng đúng ngày cấp và ngày hết hạn!');
             return;
         }
         try {

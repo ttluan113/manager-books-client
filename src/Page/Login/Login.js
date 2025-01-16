@@ -19,6 +19,7 @@ function Login() {
             const res = await request.post('/api/login', { email, password });
             toast.success(res.data.message);
             navigate('/homepage');
+            window.location.reload();
         } catch (error) {
             toast.error(error.response.data.message);
         }

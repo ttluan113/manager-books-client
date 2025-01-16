@@ -13,6 +13,8 @@ function HomePage() {
     const [searchValue, setSearchValue] = useState('');
     const debounce = useDebounce(searchValue, 500);
 
+    const token = document.cookie;
+
     useEffect(() => {
         try {
             if (searchValue === '') {
@@ -26,7 +28,7 @@ function HomePage() {
 
     useEffect(() => {
         request.get('/api/books').then((res) => setDataBooks(res.data));
-    }, []);
+    }, [token]);
 
     return (
         <div className={cx('wrapper')}>

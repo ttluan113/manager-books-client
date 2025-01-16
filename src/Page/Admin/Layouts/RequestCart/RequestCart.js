@@ -18,8 +18,12 @@ function RequestCart() {
     const [id, setId] = useState('');
     const [valueSearch, setValueSearch] = useState('');
 
-    useEffect(() => {
+    const fetchData = async () => {
         request.get('/api/getcart').then((res) => setDataCart(res.data));
+    };
+
+    useEffect(() => {
+        fetchData();
     }, [show]);
 
     const handleShow = (idUser) => {
@@ -29,6 +33,7 @@ function RequestCart() {
 
     const handleThuHoiThe = async (id) => {
         const res = await request.post('/api/thuthe', { id });
+        fetchData();
         toast.success(res.data.message);
     };
 
